@@ -3,7 +3,15 @@ import { SafeAreaView, ScrollView, View } from "react-native";
 import { Stack, useRouter } from "expo-router";
 
 import { COLORS, icons } from '../constants';
-import { ScreenHeaderBtn } from '../components'
+import { 
+  ScreenHeaderBtn,
+  RecentlyUsed, 
+  CreateNewPDF, 
+  ViewPDFs,
+  EnhanceCreatedPDFs,
+  ModifyExistingPDFs,
+  MoreOptions
+ } from '../components'
 
 const Home = () => {
   const router = useRouter()
@@ -12,7 +20,7 @@ const Home = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Stack.Screen
         options={{
-          headerStyle: { backgroundColor: COLORS.lightWhite },
+          headerStyle: { backgroundColor: COLORS.orange },
           headerShadowVisible: false,
           headerLeft: () => (
             <ScreenHeaderBtn iconUrl={icons.menu} dimension='60%' />
@@ -20,11 +28,21 @@ const Home = () => {
           headerRight: () => (
             <ScreenHeaderBtn iconUrl={icons.heart} dimension='100%' />
           ),
-          headerTitle: "",
+          headerTitle: "PDF Converter"
         }}
       />
 
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView 
+        showsVerticalScrollIndicator={false}
+        style={{borderRadius: 10}}>
+        <View>
+          <RecentlyUsed/>
+          <CreateNewPDF/>
+          <ViewPDFs/>
+          <EnhanceCreatedPDFs/>
+          <ModifyExistingPDFs/>
+          <MoreOptions/>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
