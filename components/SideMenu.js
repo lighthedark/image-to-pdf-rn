@@ -12,8 +12,7 @@ const SideMenu = ({ isVisible, onClose }) => {
       </TouchableOpacity>
 
       {/* Menu Items */}
-      <Text>Your menu items here</Text>
-      {/* Add more menu items as needed */}
+      <Text>Menu items here</Text>
     </View>
   );
 };
@@ -24,11 +23,10 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     left: 0,
-    width: '50%',
+    width: '65%',
     backgroundColor: 'white',
     padding: 20,
     zIndex: 100
-    // Add more styling as needed
   },
 });
 
