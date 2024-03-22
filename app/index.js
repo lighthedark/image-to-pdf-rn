@@ -13,17 +13,30 @@ import {
   MoreOptions
  } from '../components'
 
+ import SideMenu from '../components/SideMenu'
+
 const Home = () => {
   const router = useRouter()
+  const [menuVisible, setMenuVisible] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+      <SideMenu isVisible={menuVisible} onClose={() => setMenuVisible(false)} />
+
       <Stack.Screen
         options={{
           headerStyle: { backgroundColor: COLORS.orange },
           headerShadowVisible: false,
           headerLeft: () => (
-            <ScreenHeaderBtn iconUrl={icons.menu} dimension='60%' />
+            <ScreenHeaderBtn
+              iconUrl={icons.menu}
+              dimension='60%'
+              handlePress={toggleMenu}
+            />
           ),
           headerRight: () => (
             <ScreenHeaderBtn iconUrl={icons.heart} dimension='100%' />
