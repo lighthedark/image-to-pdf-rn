@@ -6,13 +6,27 @@ const SideMenu = ({ isVisible, onClose }) => {
 
   return (
     <View style={styles.menu}>
-      {/* Close Button */}
-      <TouchableOpacity onPress={onClose}>
-        <Text>Close</Text>
+
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Create PDF</Text>
       </TouchableOpacity>
 
-      {/* Menu Items */}
-      <Text>Menu items here</Text>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>View files</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Merge PDF</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Text to PDF</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>History</Text>
+      </TouchableOpacity>
+
     </View>
   );
 };
@@ -27,6 +41,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 20,
     zIndex: 100
+  },
+  button: {
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    marginVertical: 5,
+  },
+  buttonText: {
+    fontSize: 18,
+    marginLeft: 10,
+    fontWeight: "bold",
   },
 });
 
