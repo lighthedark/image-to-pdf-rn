@@ -13,7 +13,7 @@ import {
   MoreOptions
  } from '../components'
 
- import SideMenu from '../components/SideMenu'
+ import SideMenu from '../components/common/SideBar/SideMenu'
 
 const Home = () => {
   const router = useRouter()
