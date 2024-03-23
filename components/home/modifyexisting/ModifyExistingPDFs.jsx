@@ -15,24 +15,24 @@ const ModifyExistingPDFs = () => {
 
   return (
     <View>
-      <Text styles={styles.header}>Modify Existing PDFs</Text>
+      <Text style={styles.header}>Modify Existing PDFs</Text>
 
-      <View style={styles.rowContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(1)}>
+      <View style={styles.row}>
+        <TouchableOpacity style={styles.buttonTL} onPress={() => handleButtonPress("Merge PDF")}>
           <Text style={styles.buttonText}>Merge PDF</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(2)}>
+        <TouchableOpacity style={styles.buttonTR} onPress={() => handleButtonPress("Split PDF")}>
           <Text style={styles.buttonText}>Split PDF</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.rowContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(3)}>
+      <View style={styles.row}>
+        <TouchableOpacity style={styles.buttonL} onPress={() => handleButtonPress("Invert PDF")}>
           <Text style={styles.buttonText}>Invert PDF</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(4)}>
+        <TouchableOpacity style={styles.buttonC} onPress={() => handleButtonPress("Compress PDF")}>
           <Text style={styles.buttonText}>Compress PDF</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(4)}>
+        <TouchableOpacity style={styles.buttonR} onPress={() => handleButtonPress("Remove Duplicate")}>
           <Text style={styles.buttonText}>Remove Duplicate</Text>
         </TouchableOpacity>
       </View>

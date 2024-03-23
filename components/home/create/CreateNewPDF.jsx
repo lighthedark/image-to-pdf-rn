@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, Image, FlatList} from 'react-n
 import { useRouter } from 'expo-router';
 
 import styles from './createnewpdf.style';
-import { icons, SIZES } from '../../../constants';
+import { COLORS, icons, SIZES } from '../../../constants';
 
 const CreateNewPDF = () => {
   const router = useRouter();
@@ -16,21 +16,21 @@ const CreateNewPDF = () => {
 
   return (
     <View>
-      <Text styles={styles.header}>Create new PDF</Text>
+      <Text style={styles.header}>Create new PDF</Text>
 
       <View style={styles.row}>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(1)}>
+        <TouchableOpacity style={styles.buttonL} onPress={() => handleButtonPress("Images to PDF")}>
           <Text style={styles.buttonText}>Images to PDF</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(2)}>
+        <TouchableOpacity style={styles.buttonR} onPress={() => handleButtonPress("Text to PDF")}>
           <Text style={styles.buttonText}>Text to PDF</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(3)}>
+        <TouchableOpacity style={styles.buttonL} onPress={() => handleButtonPress("QR & Barcodes")}>
           <Text style={styles.buttonText}>QR & Barcodes</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(4)}>
+        <TouchableOpacity style={styles.buttonR} onPress={() => handleButtonPress("Excel to PDF")}>
           <Text style={styles.buttonText}>Excel to PDF</Text>
         </TouchableOpacity>
       </View>

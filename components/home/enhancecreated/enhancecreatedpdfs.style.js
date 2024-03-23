@@ -1,6 +1,8 @@
-import { StyleSheet } from "react-native";
-
+import { StyleSheet, Dimensions } from 'react-native';
 import { COLORS, FONT, SIZES } from "../../../constants";
+
+const windowWidth = Dimensions.get('window').width;
+const buttonWidth = (windowWidth - 52) / 3; // Subtracting padding
 
 const styles = StyleSheet.create({
   container: {
@@ -9,26 +11,51 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    fontSize: SIZES.xLarge,
-    color: COLORS.primary,
-    marginTop: 2,
+    fontSize: SIZES.medium,
+    color: COLORS.grey,
+    fontWeight: 'bold',
+    marginTop: 10,
+    marginLeft: 15,
+    marginBottom: 15
   },
   row: {
     flexDirection: 'row',
-    marginBottom: 10,
+    marginBottom: 0
   },
-  button: {
-    width: 150,
-    height: 150,
-    backgroundColor: 'lightblue',
+  buttonL: {
+    backgroundColor: COLORS.white,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
+    width: buttonWidth,
+    height: 140,
+    borderRadius: 10,
+    marginLeft: 15,
+    marginBottom: 12,
+    marginRight: 12
+  },
+  buttonC: {
+    backgroundColor: COLORS.white,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: buttonWidth,
+    height: 140,
+    borderRadius: 10,
+    marginBottom: 12,
+    marginRight: 12
+  },
+  buttonR: {
+    backgroundColor: COLORS.white,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: buttonWidth,
+    height: 140,
+    marginRight: 15,
     borderRadius: 10,
   },
   buttonText: {
-    fontSize: 20,
-    color: 'white',
+    fontSize: SIZES.medium,
+    color: COLORS.black,
   }
 });
+
 export default styles;

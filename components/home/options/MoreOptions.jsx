@@ -15,30 +15,28 @@ const MoreOptions = () => {
 
   return (
     <View>
-      <Text styles={styles.header}>More Options</Text>
-
-
+      <Text style={styles.header}>More Options</Text>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(1)}>
+        <TouchableOpacity style={styles.buttonL} onPress={() => handleButtonPress("Remove Pages")}>
           <Text style={styles.buttonText}>Remove Pages</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(2)}>
+        <TouchableOpacity style={styles.buttonR} onPress={() => handleButtonPress("Reorder Pages")}>
           <Text style={styles.buttonText}>Reorder Pages</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(3)}>
+        <TouchableOpacity style={styles.buttonL} onPress={() => handleButtonPress("Extract Images")}>
           <Text style={styles.buttonText}>Extract Images</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(4)}>
+        <TouchableOpacity style={styles.buttonR} onPress={() => handleButtonPress("PDF to Images")}>
           <Text style={styles.buttonText}>PDF to Images</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(3)}>
+        <TouchableOpacity style={styles.buttonL} onPress={() => handleButtonPress("Extract Text")}>
           <Text style={styles.buttonText}>Extract Text</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(4)}>
+        <TouchableOpacity style={styles.buttonR} onPress={() => handleButtonPress("ZIP to PDF")}>
           <Text style={styles.buttonText}>ZIP to PDF</Text>
         </TouchableOpacity>
       </View>

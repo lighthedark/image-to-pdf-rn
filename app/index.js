@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SafeAreaView, ScrollView, View } from "react-native";
 import { Stack, useRouter } from "expo-router";
 
-import { COLORS, icons } from '../constants';
+import { COLORS, TOPROUND, icons } from '../constants';
 import { 
   ScreenHeaderBtn,
   RecentlyUsed, 
@@ -24,12 +24,12 @@ const Home = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.colorPrimary }}>
       <SideMenu isVisible={menuVisible} onClose={() => setMenuVisible(false)} />
 
       <Stack.Screen
         options={{
-          headerStyle: { backgroundColor: COLORS.orange },
+          headerStyle: { backgroundColor: COLORS.colorPrimary },
           headerShadowVisible: false,
           headerLeft: () => (
             <ScreenHeaderBtn
@@ -39,15 +39,16 @@ const Home = () => {
             />
           ),
           headerRight: () => (
-            <ScreenHeaderBtn iconUrl={icons.heart} dimension='100%' />
+            <ScreenHeaderBtn iconUrl={icons.heart} dimension='60%' />
           ),
           headerTitle: "PDF Converter"
         }}
       />
-
       <ScrollView 
         showsVerticalScrollIndicator={false}
-        style={{borderRadius: 10}}>
+        style={{borderTopLeftRadius: 25,
+                borderTopRightRadius: 25,
+                backgroundColor: COLORS.lighter_gray}}>
         <View>
           <RecentlyUsed/>
           <CreateNewPDF/>

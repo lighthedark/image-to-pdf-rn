@@ -15,21 +15,17 @@ const ViewPDFs = () => {
 
   return (
     <View>
-      <Text styles={styles.header}>View PDFs</Text>
-
-
+      <Text style={styles.header}>View PDFs</Text>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(1)}>
+        <TouchableOpacity style={styles.buttonL} onPress={() => handleButtonPress("View File")}>
           <Text style={styles.buttonText}>View Files</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => handleButtonPress(2)}>
+        <TouchableOpacity style={styles.buttonR} onPress={() => handleButtonPress("History")}>
           <Text style={styles.buttonText}>History</Text>
         </TouchableOpacity>
       </View>
 
     </View>
-
-    
   )
 }
 
