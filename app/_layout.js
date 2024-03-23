@@ -8,7 +8,11 @@ import * as SplashScreen from 'expo-splash-screen';
 //const log = logger.createLogger();
 
 const Layout = () => {
-    return <Stack />;
+    return (
+        <Stack initialRouteName="index">
+            <Stack.Screen name="index" />
+        </Stack>
+    )
 }
 
 export default Layout;

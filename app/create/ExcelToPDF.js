@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SafeAreaView, ScrollView, View } from "react-native";
 import { Stack, useRouter, Link } from "expo-router";
 
-import { COLORS, TOPROUND, icons } from '../constants';
+import { COLORS, TOPROUND, icons } from '../../constants';
 import { 
   ScreenHeaderBtn,
   RecentlyUsed, 
@@ -11,10 +11,11 @@ import {
   EnhanceCreatedPDFs,
   ModifyExistingPDFs,
   MoreOptions
- } from '../components'
-import Header from "./header/Header";
+ } from '../../components'
 
-const Home = () => {
+ import SideMenu from '../../components/common/SideBar/SideMenu'
+
+const ExcelToPDF = () => {
   const router = useRouter()
   const [menuVisible, setMenuVisible] = useState(false);
 
@@ -24,23 +25,34 @@ const Home = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.colorPrimary }}>
-      <Header/>
+      <SideMenu isVisible={menuVisible} onClose={() => setMenuVisible(false)} />
+      <Stack.Screen
+        options={{
+          headerStyle: { backgroundColor: COLORS.colorPrimary },
+          headerShadowVisible: false,
+          headerLeft: () => (
+            <ScreenHeaderBtn
+              iconUrl={icons.menu}
+              dimension='60%'
+              handlePress={toggleMenu}
+            />
+          ),
+          headerRight: () => (
+            <ScreenHeaderBtn iconUrl={icons.heart} dimension='60%' />
+          ),
+          headerTitle: "Excel to PDF"
+        }}
+      />
       <ScrollView 
         showsVerticalScrollIndicator={false}
         style={{borderTopLeftRadius: 25,
                 borderTopRightRadius: 25,
                 backgroundColor: COLORS.lighter_gray}}>
         <View>
-          <RecentlyUsed/>
-          <CreateNewPDF/>
-          <ViewPDFs/>
-          <EnhanceCreatedPDFs/>
-          <ModifyExistingPDFs/>
-          <MoreOptions/>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-export default Home;
+export default ExcelToPDF;
