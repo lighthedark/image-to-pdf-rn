@@ -1,0 +1,21 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24">
+    <defs>
+        <!-- Define the colors -->
+        <linearGradient id="colorPrimary" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FF0000;" />
+            <stop offset="100%" style="stop-color:#00FF00;" />
+        </linearGradient>
+        <linearGradient id="colorDarkGrey" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#808080;" />
+            <stop offset="100%" style="stop-color:#404040;" />
+        </linearGradient>
+    </defs>
+    <!-- Rectangle representing the checked state -->
+    <rect x="0" y="0" width="24" height="24" fill="url(#colorPrimary)" />
+    <!-- Rectangle representing the unchecked state -->
+    <rect x="0" y="0" width="24" height="24" fill="url(#colorDarkGrey)" />
+</svg>
