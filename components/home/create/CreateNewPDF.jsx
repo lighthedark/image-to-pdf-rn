@@ -1,15 +1,26 @@
-import { useState } from 'react';
+import React, { useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, FlatList} from 'react-native';
-import { Link, router } from 'expo-router';
-
+import { useRouter } from 'expo-router';
+import RecentlyUsedContext from '../recentlyused/RecentlyUsedContext';
 import styles from './createnewpdf.style';
 import { COLORS, icons, SIZES } from '../../../constants';
 
 const CreateNewPDF = () => {
+  const router = useRouter();
+  const { addFeature } = useContext(RecentlyUsedContext);
+
+  // define a name mapping for the pages
+  const pageNames = {
+    "ImageToPDF": "Images to PDF",
+    "TextToPDF": "Text to PDF",
+    "QRAndBarcodes": "QR & Barcodes",
+    "ExcelToPDF": "Excel to PDF",
+  };
 
   const handleButtonPress = (page) => {
-    console.log(`Button ${page} pressed`);
-    router.push(`/create/${page}`)
+    console.log(`Button ${pageNames[page]} pressed`);
+    addFeature(pageNames[page]);
+    router.push(`/create/${page}`);
   };
 
   return (

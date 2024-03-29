@@ -5,13 +5,16 @@ import { Stack, useRouter, Link } from "expo-router";
 import { COLORS, TOPROUND, icons } from '../constants';
 import { 
   ScreenHeaderBtn,
-  RecentlyUsed, 
+  // RecentlyUsed, 
+  // RecentlyUsedFeatures,
   CreateNewPDF, 
   ViewPDFs,
   EnhanceCreatedPDFs,
   ModifyExistingPDFs,
   MoreOptions
- } from '../components'
+ } from '../components';
+ import RecentlyUsedProvider from '../components/home/recentlyused/RecentlyUsedProvider';
+ import RecentlyUsedFeatures from '../components/home/recentlyused/RecentlyUsedFeatures';
 import Header from "./header/Header";
 
 const Home = () => {
@@ -30,14 +33,16 @@ const Home = () => {
         style={{borderTopLeftRadius: 25,
                 borderTopRightRadius: 25,
                 backgroundColor: COLORS.lighter_gray}}>
+        <RecentlyUsedProvider>
+        <RecentlyUsedFeatures />
         <View>
-          <RecentlyUsed/>
           <CreateNewPDF/>
           <ViewPDFs/>
           <EnhanceCreatedPDFs/>
           <ModifyExistingPDFs/>
           <MoreOptions/>
         </View>
+        </RecentlyUsedProvider>
       </ScrollView>
     </SafeAreaView>
   );

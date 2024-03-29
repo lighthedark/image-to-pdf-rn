@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import React, { useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, FlatList} from 'react-native';
 import { useRouter } from 'expo-router';
-
+import RecentlyUsedContext from '../recentlyused/RecentlyUsedContext';
 import styles from './enhancecreatedpdfs.style';
 import { icons, SIZES } from '../../../constants';
 
 const EnhanceCreatedPDFs = () => {
   const router = useRouter();
-
-  const handleButtonPress = (buttonNumber) => {
-    console.log(`Button ${buttonNumber} pressed`);
-    // Add your logic for handling button press here
+  const { addFeature } = useContext(RecentlyUsedContext);
+  const handleButtonPress = (featureName) => {
+    console.log(`${featureName} pressed`);
+    addFeature(featureName);
   };
 
   return (
