@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, FlatList} from 'react-native';
 import { useRouter } from 'expo-router';
-import RecentlyUsedContext from '../recentlyused/RecentlyUsedContext';
+import RecentlyUsedContext from './recentlyused/RecentlyUsedContext';
 import styles from './home.style';
-import { icons, SIZES } from '../../../constants';
 
 const ViewPDFs = () => {
   const router = useRouter();

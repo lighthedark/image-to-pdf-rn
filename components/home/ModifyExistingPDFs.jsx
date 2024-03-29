@@ -1,14 +1,8 @@
 import React, { useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, FlatList} from 'react-native';
 import { useRouter } from 'expo-router';
-<<<<<<< HEAD:components/home/modify/ModifyExistingPDFs.jsx
-import RecentlyUsedContext from '../recentlyused/RecentlyUsedContext';
-import styles from './modifyexistingpdfs.style';
-import { icons, SIZES } from '../../../constants';
-=======
-
+import RecentlyUsedContext from './recentlyused/RecentlyUsedContext';
 import styles from './home.style';
->>>>>>> ab00d2dbbeebb897d6d9b7a7744c275989ff4ce0:components/home/ModifyExistingPDFs.jsx
 
 const ModifyExistingPDFs = () => {
   const router = useRouter();
