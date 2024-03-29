@@ -2,6 +2,7 @@ import { Stack } from "expo-router"
 import { useState } from "react";
 import { COLORS, icons } from "../../constants"
 import { ScreenHeaderBtn } from "../../components";
+import HeartBtn from "../../components/common/heart/HeartBtn";
 
 import SideMenu from "../../components/common/SideBar/SideMenu"
 
@@ -27,7 +28,7 @@ const Header = () => {
                         />
                     ),
                     headerRight: () => (
-                        <ScreenHeaderBtn iconUrl={icons.heart} dimension='60%' />
+                        <HeartBtn iconUrl={icons.heart} dimension='60%' />
                     ),
                     headerTitle: "PDF Converter"
                 }}
