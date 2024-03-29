@@ -21,13 +21,6 @@ const COLORS = {
   dot_inactive: 'rgba(77, 245, 124, 0)'
 };
 
-const TOPROUND = {
-  width: 200,
-  height: 100,
-  borderTopLeftRadius: 20, // Adjust as per your requirement
-  borderTopRightRadius: 20, // Adjust as per your requirement
-}
-
 const FONT = {
   regular: "DMRegular",
   medium: "DMMedium",
@@ -36,7 +29,7 @@ const FONT = {
 
 const SIZES = {
   xSmall: 10,
-  small: 14,
+  small: 15,
   medium: 16,
   large: 20,
   xLarge: 24,
@@ -66,4 +59,4 @@ const SHADOWS = {
   },
 };
   
-  export { COLORS, FONT, SIZES, SHADOWS, TOPROUND};
+  export { COLORS, FONT, SIZES, SHADOWS};

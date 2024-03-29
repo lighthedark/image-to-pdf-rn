@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, FlatList} from 'react-native';
 import { useRouter } from 'expo-router';
 
-import styles from './recentlyused.style';
-import { loadItem, saveItem } from '../../common/recentlyused/DataStorage';
+import styles from './home.style';
+import { loadItem, saveItem } from '../common/recentlyused/DataStorage';
 
 
 const RecentlyUsed = () => {

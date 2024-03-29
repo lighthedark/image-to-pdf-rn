@@ -1,28 +1,11 @@
 import { useState } from "react";
 import { SafeAreaView, ScrollView, View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Stack, useRouter, Link } from "expo-router";
-import { COLORS, TOPROUND, icons } from '../../constants';
-// import Video from 'expo-av';
-import { 
-  ScreenHeaderBtn,
-  RecentlyUsed, 
-  CreateNewPDF, 
-  ViewPDFs,
-  EnhanceCreatedPDFs,
-  ModifyExistingPDFs,
-  MoreOptions
- } from '../../components'
-
- import SideMenu from '../../components/common/SideBar/SideMenu'
+import { COLORS, } from '../../constants';
+import Header from "../header/Header";
 
 const Favourites = () => {
   const router = useRouter()
-  const [menuVisible, setMenuVisible] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuVisible(!menuVisible);
-  };
-
   const addFavourite = () => {
     console.log("Adding favourite...");
     // add your logic here, e.g.: router.push(`/create/${page}`)
@@ -30,21 +13,11 @@ const Favourites = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.colorPrimary }}>
-      <SideMenu isVisible={menuVisible} onClose={() => setMenuVisible(false)} />
-      <Stack.Screen
-        options={{
-          headerStyle: { backgroundColor: COLORS.colorPrimary },
-          headerShadowVisible: false,
-          headerLeft: () => (
-            <ScreenHeaderBtn
-              iconUrl={icons.menu}
-              dimension='60%'
-              handlePress={toggleMenu}
-            />
-          ),
-          headerTitle: "Favourites"
-        }}
+      <Header 
+        title={"Favourites"}
+        rightVisible={false}
       />
+
       <ScrollView 
         showsVerticalScrollIndicator={false}
         style={styles.scrollView}>
@@ -61,17 +34,6 @@ const Favourites = () => {
         style={styles.gifStyle}
         resizeMode="cover" // Adjusts the gif to fit within the width and height specified
       />
-    {/* </View> */}
-      {/* <Video
-        source={{uri: '../../assets/favourites/heart.mp4'}}
-        rate={1.0}
-        // volume={1.0}
-        isMuted={true}
-        resizeMode="cover"
-        shouldPlay
-        isLooping
-        style={styles.video}
-      /> */}
     </SafeAreaView>
   );
 };

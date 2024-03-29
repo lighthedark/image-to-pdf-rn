@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, FlatList} from 'react-native';
 import { useRouter } from 'expo-router';
 
-import styles from './modifyexistingpdfs.style';
-import { icons, SIZES } from '../../../constants';
+import styles from './home.style';
 
 const ModifyExistingPDFs = () => {
   const router = useRouter();
@@ -18,21 +17,21 @@ const ModifyExistingPDFs = () => {
       <Text style={styles.header}>Modify Existing PDFs</Text>
 
       <View style={styles.row}>
-        <TouchableOpacity style={styles.buttonTL} onPress={() => handleButtonPress("Merge PDF")}>
+        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("Merge PDF")}>
           <Text style={styles.buttonText}>Merge PDF</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonTR} onPress={() => handleButtonPress("Split PDF")}>
+        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("Split PDF")}>
           <Text style={styles.buttonText}>Split PDF</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.buttonL} onPress={() => handleButtonPress("Invert PDF")}>
+        <TouchableOpacity style={styles.buttonL3} onPress={() => handleButtonPress("Invert PDF")}>
           <Text style={styles.buttonText}>Invert PDF</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonC} onPress={() => handleButtonPress("Compress PDF")}>
+        <TouchableOpacity style={styles.buttonC3} onPress={() => handleButtonPress("Compress PDF")}>
           <Text style={styles.buttonText}>Compress PDF</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonR} onPress={() => handleButtonPress("Remove Duplicate")}>
+        <TouchableOpacity style={styles.buttonR3} onPress={() => handleButtonPress("Remove Duplicate")}>
           <Text style={styles.buttonText}>Remove Duplicate</Text>
         </TouchableOpacity>
       </View>

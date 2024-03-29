@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, FlatList} from 'react-native';
 import { useRouter } from 'expo-router';
 
-import styles from './moreoptions.style';
-import { icons, SIZES } from '../../../constants';
+import styles from './home.style';
 
 const MoreOptions = () => {
   const router = useRouter();
@@ -17,26 +16,26 @@ const MoreOptions = () => {
     <View>
       <Text style={styles.header}>More Options</Text>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.buttonL} onPress={() => handleButtonPress("Remove Pages")}>
+        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("Remove Pages")}>
           <Text style={styles.buttonText}>Remove Pages</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonR} onPress={() => handleButtonPress("Reorder Pages")}>
+        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("Reorder Pages")}>
           <Text style={styles.buttonText}>Reorder Pages</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.buttonL} onPress={() => handleButtonPress("Extract Images")}>
+        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("Extract Images")}>
           <Text style={styles.buttonText}>Extract Images</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonR} onPress={() => handleButtonPress("PDF to Images")}>
+        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("PDF to Images")}>
           <Text style={styles.buttonText}>PDF to Images</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.buttonL} onPress={() => handleButtonPress("Extract Text")}>
+        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("Extract Text")}>
           <Text style={styles.buttonText}>Extract Text</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonR} onPress={() => handleButtonPress("ZIP to PDF")}>
+        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("ZIP to PDF")}>
           <Text style={styles.buttonText}>ZIP to PDF</Text>
         </TouchableOpacity>
       </View>
