@@ -2,11 +2,9 @@ import { useState } from "react";
 import { SafeAreaView, ScrollView, View } from "react-native";
 import { Stack, useRouter, Link } from "expo-router";
 
-import { COLORS, TOPROUND, icons } from '../constants';
+import { COLORS } from '../constants';
 import { 
-  ScreenHeaderBtn,
-  // RecentlyUsed, 
-  // RecentlyUsedFeatures,
+  RecentlyUsed, 
   CreateNewPDF, 
   ViewPDFs,
   EnhanceCreatedPDFs,
@@ -27,7 +25,9 @@ const Home = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.colorPrimary }}>
-      <Header/>
+      <Header
+        title="PDF Converter"
+      />
       <ScrollView 
         showsVerticalScrollIndicator={false}
         style={{borderTopLeftRadius: 25,
@@ -35,7 +35,7 @@ const Home = () => {
                 backgroundColor: COLORS.lighter_gray}}>
         <RecentlyUsedProvider>
         <RecentlyUsedFeatures />
-        <View>
+        <View style={{marginBottom: 10, marginTop: 20}}>
           <CreateNewPDF/>
           <ViewPDFs/>
           <EnhanceCreatedPDFs/>

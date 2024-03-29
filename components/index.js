@@ -3,11 +3,11 @@ import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
 
 // Home Screen
 import RecentlyUsedFeatures from './home/recentlyused/RecentlyUsedFeatures';
-import CreateNewPDF from "./home/create/CreateNewPDF";
-import ViewPDFs from "./home/view/ViewPDFs";
-import EnhanceCreatedPDFs from "./home/enhanced/EnhanceCreatedPDFs";
-import ModifyExistingPDFs from "./home/modify/ModifyExistingPDFs";
-import MoreOptions from "./home/options/MoreOptions";
+import CreateNewPDF from "./home/CreateNewPDF";
+import ViewPDFs from "./home/ViewPDFs";
+import EnhanceCreatedPDFs from "./home/EnhanceCreatedPDFs";
+import ModifyExistingPDFs from "./home/ModifyExistingPDFs";
+import MoreOptions from "./home/MoreOptions";
 
 export {
   ScreenHeaderBtn,
