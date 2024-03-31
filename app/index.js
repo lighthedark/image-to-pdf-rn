@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { SafeAreaView, ScrollView, View } from "react-native";
 import { Stack, useRouter, Link } from "expo-router";
+import SideMenu from '../components/common/SideBar/SideMenu';
+import BackDrop from '../components/common/BackDrop/BackDrop';
 
 import { COLORS } from '../constants';
 import { 
@@ -26,8 +28,11 @@ const Home = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.colorPrimary }}>
+      <BackDrop isVisible={menuVisible} onClick={() => setMenuVisible(false)} />
+      <SideMenu isVisible={menuVisible} onClose={() => setMenuVisible(false)} />
       <Header
         title="PDF Converter"
+        toggleMenu={toggleMenu}
       />
       <View style={{overflow: 'scroll', 
                     borderTopLeftRadius: 25,
