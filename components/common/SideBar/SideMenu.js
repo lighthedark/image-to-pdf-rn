@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   sectionHeader: {
       fontSize: 22,
       fontWeight: 'bold',
-      paddingBottom: 25,
+      paddingBottom: 20,
   },
   headerContent: {
     flexDirection: 'row',
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     marginRight: 20,
-    marginBottom: 25,
+    marginBottom: 20,
   },
   sectionSubHeader: {
       fontSize: 22,
