@@ -5,7 +5,7 @@ import Header from "../header/Header";
 const TextToPDF = () => {
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.colorPrimary }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.colorAltPrimary }}>
       <Header
         title="Text to PDF"
       />

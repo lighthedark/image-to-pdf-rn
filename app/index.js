@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { SafeAreaView, ScrollView, View } from "react-native";
 import { Stack, useRouter, Link } from "expo-router";
-import SideMenu from '../components/common/SideBar/SideMenu';
-import BackDrop from '../components/common/BackDrop/BackDrop';
 
 import { COLORS } from '../constants';
 import { 
@@ -20,19 +18,11 @@ import Header from "./header/Header";
 
 const Home = () => {
   const router = useRouter()
-  const [menuVisible, setMenuVisible] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuVisible(!menuVisible);
-  };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.colorPrimary }}>
-      <BackDrop isVisible={menuVisible} onClick={() => setMenuVisible(false)} />
-      <SideMenu isVisible={menuVisible} onClose={() => setMenuVisible(false)} />
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.colorAltPrimary }}>   
       <Header
         title="PDF Converter"
-        toggleMenu={toggleMenu}
       />
       <View style={{overflow: 'scroll', 
                     borderTopLeftRadius: 25,
@@ -41,7 +31,7 @@ const Home = () => {
         <ScrollView showsVerticalScrollIndicator={false}>
           <RecentlyUsedProvider>
           <RecentlyUsedFeatures />
-          <View style={{marginBottom: 20, marginTop: 20}}>
+          <View style={{marginBottom: 110, marginTop: 20}}>
             <CreateNewPDF/>
             <ViewPDFs/>
             <EnhanceCreatedPDFs/>

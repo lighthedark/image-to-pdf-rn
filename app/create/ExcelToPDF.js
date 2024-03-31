@@ -5,7 +5,7 @@ import Header from "../header/Header";
 const ExcelToPDF = () => {
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.colorPrimary }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.colorAltPrimary }}>
       <Header
         title="Excel to PDF"
       />

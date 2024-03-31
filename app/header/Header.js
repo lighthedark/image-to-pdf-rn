@@ -4,22 +4,34 @@ import { COLORS, icons } from "../../constants"
 import { ScreenHeaderBtn } from "../../components";
 import { View, Text } from "react-native";
 
-const Header = ({ title, rightVisible=true, toggleMenu }) => {
+import SideMenu from '../../components/common/sidebar/SideMenu';
+import BackDrop from '../../components/common/BackDrop/BackDrop';
+
+
+const Header = ({ title, rightVisible=true }) => {
     const router = useRouter()
 
     const goToFavorites = () => {
         console.log('Button favorites pressed');
         router.push('favourites/Favourites')
-      };
+    };
+
+    const [menuVisible, setMenuVisible] = useState(false);
+
+    const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
+    };
 
     return (
         <>
+            <BackDrop isVisible={menuVisible} onClick={() => setMenuVisible(false)} />
+            <SideMenu isVisible={menuVisible} onClose={() => setMenuVisible(false)} />
             <Stack.Screen options={{ headerShown: false }} />
             <View style={{ height: 23 }} />
-            <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: COLORS.colorPrimary, height: 60 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: COLORS.colorAltPrimary, height: 60 }}>
                 <ScreenHeaderBtn
                     iconUrl={icons.menu}
-                    dimension='43%'
+                    dimension='65%'
                     marginLeft={20}
                     marginRight={15}
                     handlePress={toggleMenu}
