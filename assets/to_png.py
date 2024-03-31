@@ -2,7 +2,7 @@ import cairosvg
 import os
 
 # Set the path to the directory containing the SVG files
-directory = '/Users/andyyang/Desktop/ece595_team/image-to-pdf-rn/assets/drawable-xxhdpi'
+directory = '~/Desktop/ece595_team/image-to-pdf-rn/assets/drawable-xxhdpi'
 
 # Loop through all files in the directory
 for filename in os.listdir(directory):
@@ -13,7 +13,7 @@ for filename in os.listdir(directory):
 
         try:
             # Convert SVG to PNG
-            cairosvg.svg2png(url=svg_path, write_to=png_path)
+            cairosvg.svg2png(url=svg_path, write_to=png_path, scale=2.0)
             print(f"Converted {filename} to PNG")
         except Exception as e:
             print(f"Failed to convert {filename}: {e}")

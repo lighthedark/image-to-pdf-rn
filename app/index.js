@@ -11,8 +11,9 @@ import {
   ModifyExistingPDFs,
   MoreOptions
  } from '../components';
+
  import RecentlyUsedProvider from '../components/home/recentlyused/RecentlyUsedProvider';
- import RecentlyUsedFeatures from '../components/home/recentlyused/RecentlyUsedFeatures';
+import RecentlyUsedFeatures from '../components/home/recentlyused/RecentlyUsedFeatures';
 import Header from "./header/Header";
 
 const Home = () => {
@@ -28,22 +29,23 @@ const Home = () => {
       <Header
         title="PDF Converter"
       />
-      <ScrollView 
-        showsVerticalScrollIndicator={false}
-        style={{borderTopLeftRadius: 25,
-                borderTopRightRadius: 25,
-                backgroundColor: COLORS.lighter_gray}}>
-        <RecentlyUsedProvider>
-        <RecentlyUsedFeatures />
-        <View style={{marginBottom: 10, marginTop: 20}}>
-          <CreateNewPDF/>
-          <ViewPDFs/>
-          <EnhanceCreatedPDFs/>
-          <ModifyExistingPDFs/>
-          <MoreOptions/>
-        </View>
-        </RecentlyUsedProvider>
-      </ScrollView>
+      <View style={{overflow: 'scroll', 
+                    borderTopLeftRadius: 25,
+                    borderTopRightRadius: 25,
+                    backgroundColor: COLORS.lighter_gray}}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <RecentlyUsedProvider>
+          <RecentlyUsedFeatures />
+          <View style={{marginBottom: 20, marginTop: 20}}>
+            <CreateNewPDF/>
+            <ViewPDFs/>
+            <EnhanceCreatedPDFs/>
+            <ModifyExistingPDFs/>
+            <MoreOptions/>
+          </View>
+          </RecentlyUsedProvider>
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };

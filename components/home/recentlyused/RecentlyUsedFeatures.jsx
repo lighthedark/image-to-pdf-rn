@@ -11,6 +11,8 @@ const RecentlyUsedFeatures = () => {
     if (recentlyUsed.length === 0) {
       return null;
     }
+
+    return null;
   
     const handleFeaturePress = (featureName) => {
       console.log(`${featureName} pressed again`);

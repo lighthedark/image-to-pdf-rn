@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, FlatList} from 'react-native';
 import { useRouter } from 'expo-router';
 import RecentlyUsedContext from './recentlyused/RecentlyUsedContext';
-import styles from './home.style';
+import {styles, buttonStyles} from './home.style';
+import { COLORS, icons } from "../../constants"
 
 const ViewPDFs = () => {
   const router = useRouter();
@@ -18,9 +19,19 @@ const ViewPDFs = () => {
       <Text style={styles.header}>View PDFs</Text>
       <View style={styles.row}>
         <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("View File")}>
+          <Image
+            source={icons.viewFiles}
+            resizeMode='cover'
+            style={buttonStyles.buttonImage}
+          />
           <Text style={styles.buttonText}>View Files</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("History")}>
+          <Image
+            source={icons.history}
+            resizeMode='cover'
+            style={buttonStyles.buttonImage}
+          />
           <Text style={styles.buttonText}>History</Text>
         </TouchableOpacity>
       </View>

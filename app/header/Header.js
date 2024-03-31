@@ -2,6 +2,7 @@ import { Stack, useRouter } from "expo-router"
 import { useState } from "react";
 import { COLORS, icons } from "../../constants"
 import { ScreenHeaderBtn } from "../../components";
+import { View } from "react-native";
 import SideMenu from "../../components/common/sidebar/SideMenu"
 import BackDrop from "../../components/common/BackDrop/BackDrop"
 
@@ -24,12 +25,12 @@ const Header = ({ title, rightVisible=true }) => {
             <SideMenu isVisible={menuVisible} onClose={() => setMenuVisible(false)} />
             <Stack.Screen
                 options={{
-                    headerStyle: { backgroundColor: COLORS.colorPrimary },
+                    headerStyle: { backgroundColor: COLORS.colorPrimary},
                     headerShadowVisible: false,
                     headerLeft: () => (
                         <ScreenHeaderBtn
-                            iconUrl={icons.heart}
-                            dimension='60%'
+                            iconUrl={icons.menu}
+                            dimension='43%'
                             marginLeft={5}
                             marginRight={15}
                             handlePress={toggleMenu}
@@ -55,8 +56,8 @@ const Header = ({ title, rightVisible=true }) => {
                     headerBackButtonMenuEnabled: false,
                       
                 }}
-                height={10}
             />
+            <View style={{ height: 15 }} />
       </>
     )
 }

@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     marginBottom: 0
   },
   buttonText: {
-    fontSize: SIZES.medium,
+    fontSize: SIZES.small,
     color: COLORS.black,
     textAlign: 'center'
   },
@@ -92,4 +92,14 @@ const styles = StyleSheet.create({
   }
 });
 
-export default styles;
+const buttonStyles = StyleSheet.create({
+  buttonImage: {
+    width: 48,
+    height: 48,
+    marginTop: -9,
+    marginBottom: 8,
+    tintColor: COLORS.colorPrimary
+  }
+});
+
+export {styles, buttonStyles};

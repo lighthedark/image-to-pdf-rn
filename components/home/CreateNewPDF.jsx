@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, FlatList} from 'react-native';
+import { View, Text, Image, TouchableOpacity} from 'react-native';
 import { useRouter } from 'expo-router';
 import RecentlyUsedContext from './recentlyused/RecentlyUsedContext';
-import styles from "./home.style";
+import {styles, buttonStyles} from "./home.style";
+import { COLORS, icons } from "../../constants"
 
 const CreateNewPDF = () => {
   const router = useRouter();
@@ -28,17 +29,37 @@ const CreateNewPDF = () => {
 
       <View style={styles.row}>
         <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("ImageToPDF")}>
+          <Image
+            source={icons.image}
+            resizeMode='cover'
+            style={buttonStyles.buttonImage}
+          />
           <Text style={styles.buttonText}>Images to PDF</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("TextToPDF")}>
+          <Image
+            source={icons.text}
+            resizeMode='cover'
+            style={buttonStyles.buttonImage}
+          />
           <Text style={styles.buttonText}>Text to PDF</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
         <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("QRAndBarcodes")}>
+          <Image
+            source={icons.qrcode}
+            resizeMode='cover'
+            style={buttonStyles.buttonImage}
+          />
           <Text style={styles.buttonText}>QR & Barcodes</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("ExcelToPDF")}>
+          <Image
+            source={icons.excel}
+            resizeMode='cover'
+            style={buttonStyles.buttonImage}
+          />
           <Text style={styles.buttonText}>Excel to PDF</Text>
         </TouchableOpacity>
       </View>
