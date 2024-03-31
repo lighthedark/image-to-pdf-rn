@@ -1,31 +1,58 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { COLORS, icons } from "../../../constants"
 
 const SideMenu = ({ isVisible, onClose }) => {
   if (!isVisible) return null;
 
   return (
     <View style={styles.menu}>
-      <Text style={styles.sectionHeader}>PDF Converter</Text>
+      <View style={styles.headerContent}>
+        <Image
+          source={icons.logo_round}
+          style={styles.headerImage}
+        />
+        <Text style={styles.sectionHeader}>PDF Converter</Text>
+      </View>
 
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Create PDF</Text>
+        <View style={styles.buttonContent}>
+          <Image
+            source={icons.camera}
+            style={styles.buttonImage}
+          />
+          <Text style={styles.buttonText}>Create PDF</Text>
+        </View>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>View files</Text>
+        <View style={styles.buttonContent}>
+          <Image
+            source={icons.gallery}
+            style={styles.buttonImage}
+          />
+          <Text style={styles.buttonText}>View Files</Text>
+        </View>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Merge PDF</Text>
+        <View style={styles.buttonContent}>
+          <Image
+            source={icons.merge}
+            style={styles.buttonImage2}
+          />
+          <Text style={styles.buttonText}>Merge PDF</Text>
+        </View>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Text to PDF</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>History</Text>
+        <View style={styles.buttonContent}>
+          <Image
+            source={icons.text}
+            style={styles.buttonImage2}
+          />
+          <Text style={styles.buttonText}>Text to PDF</Text>
+        </View>
       </TouchableOpacity>
 
       <View style={styles.sectionSpacer} />
@@ -33,11 +60,23 @@ const SideMenu = ({ isVisible, onClose }) => {
       <Text style={styles.sectionSubHeader}>Extras</Text>
 
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>About Us</Text>
+        <View style={styles.buttonContent}>
+          <Image
+            source={icons.about_us}
+            style={styles.buttonImage}
+          />
+          <Text style={styles.buttonText}>About Us</Text>
+        </View>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Share</Text>
+        <View style={styles.buttonContent}>
+          <Image
+            source={icons.help}
+            style={styles.buttonImage}
+          />
+          <Text style={styles.buttonText}>Help</Text>
+        </View>
       </TouchableOpacity>
 
 
@@ -62,6 +101,17 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       paddingBottom: 20,
   },
+  headerContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: 0,
+  },
+  headerImage: {
+    width: 30,
+    height: 30,
+    marginRight: 20,
+    marginBottom: 20,
+  },
   sectionSubHeader: {
       fontSize: 22,
       fontWeight: 'bold',
@@ -76,10 +126,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginVertical: 5,
   },
+  buttonContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   buttonText: {
     fontSize: 18,
     marginLeft: 10,
     fontWeight: "bold",
+  },
+  buttonImage: {
+    width: 25,
+    height: 25,
+    marginRight: 8,
+  },
+  buttonImage2: {
+    width: 28,
+    height: 25,
+    marginRight: 6,
   },
 });
 

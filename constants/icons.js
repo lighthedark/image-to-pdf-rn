@@ -24,6 +24,12 @@ import reorder from "../assets/drawable/reorderPages.png"
 import broken from "../assets/drawable/ic_broken_image_black_24dp.png"
 import zip from "../assets/drawable/ic_zip_to_pdf.png"
 
+import logo_round from "../assets/drawable/ic_logo_round.png"
+import camera from "../assets/drawable/ic_menu_camera.png"
+import gallery from "../assets/drawable/ic_menu_gallery.png"
+import about_us from "../assets/drawable/ic_about_us_24dp.png"
+import help from "../assets/drawable/ic_help_outline_black_24dp.png"
+
 export default {
   menu,
   heart,
@@ -46,5 +52,10 @@ export default {
   removePage,
   reorder,
   broken,
-  zip
+  zip,
+  logo_round,
+  camera,
+  gallery,
+  about_us,
+  help
 };
