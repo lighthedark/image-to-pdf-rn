@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
   sectionHeader: {
       fontSize: 22,
       fontWeight: 'bold',
+      paddingTop: 30,
       paddingBottom: 20,
   },
   headerContent: {
@@ -109,6 +110,7 @@ const styles = StyleSheet.create({
   headerImage: {
     width: 30,
     height: 30,
+    marginTop: 30,
     marginRight: 20,
     marginBottom: 20,
   },
