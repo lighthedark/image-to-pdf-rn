@@ -3,7 +3,7 @@ import { useState } from "react";
 import { COLORS, icons } from "../../constants"
 import { ScreenHeaderBtn } from "../../components";
 import { View } from "react-native";
-import SideMenu from "../../components/common/sidebar/SideMenu"
+import SideMenu from "../../components/common/SideBar/SideMenu"
 import BackDrop from "../../components/common/BackDrop/BackDrop"
 
 const Header = ({ title, rightVisible=true }) => {
