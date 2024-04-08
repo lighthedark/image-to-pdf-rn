@@ -59,5 +59,9 @@ const SHADOWS = {
     elevation: 5,
   },
 };
+
+const DEFAULT_STYLE = {
+  flex: 1
+};
   
-  export { COLORS, FONT, SIZES, SHADOWS};
+  export { COLORS, FONT, SIZES, SHADOWS, DEFAULT_STYLE};

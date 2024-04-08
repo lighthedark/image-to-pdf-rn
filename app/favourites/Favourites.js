@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { SafeAreaView, ScrollView, View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Stack, useRouter, Link } from "expo-router";
-import { COLORS, } from '../../constants';
+import { COLORS, DEFAULT_STYLE} from '../../constants';
 import Header from "../header/Header";
+import { LinearGradient } from 'expo-linear-gradient';
+
 
 const Favourites = () => {
   const router = useRouter()
@@ -12,29 +14,31 @@ const Favourites = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.colorPrimary }}>
-      <Header 
-        title={"Favourites"}
-        rightVisible={false}
-      />
+    <LinearGradient colors={[COLORS.colorPrimary, COLORS.colorAccent]} start={{x: 0, y: 0}} end={{x: 0, y: 0.16}} style={DEFAULT_STYLE}>
+      <SafeAreaView style={DEFAULT_STYLE}>
+        <Header 
+          title={"Favourites"}
+          rightVisible={false}
+        />
 
-      <ScrollView 
-        showsVerticalScrollIndicator={false}
-        style={styles.scrollView}>
-        <View>
-          <Text style={styles.instructionText}>Select + icon to add your favourite features!</Text>
-        </View>
-      </ScrollView>
-      <TouchableOpacity onPress={addFavourite} style={styles.addButton}>
-        <Text style={styles.addButtonText}>+</Text>
-      </TouchableOpacity>
-      {/* <View style={styles.container}> */}
-      <Image
-        source={require('../../assets/favourites/heart.gif')} 
-        style={styles.gifStyle}
-        resizeMode="cover" // Adjusts the gif to fit within the width and height specified
-      />
-    </SafeAreaView>
+        <ScrollView 
+          showsVerticalScrollIndicator={false}
+          style={styles.scrollView}>
+          <View>
+            <Text style={styles.instructionText}>Select + icon to add your favourite features!</Text>
+          </View>
+        </ScrollView>
+        <TouchableOpacity onPress={addFavourite} style={styles.addButton}>
+          <Text style={styles.addButtonText}>+</Text>
+        </TouchableOpacity>
+        {/* <View style={styles.container}> */}
+        <Image
+          source={require('../../assets/favourites/heart.gif')} 
+          style={styles.gifStyle}
+          resizeMode="cover" // Adjusts the gif to fit within the width and height specified
+        />
+      </SafeAreaView>
+    </LinearGradient>
   );
 };
 
@@ -46,7 +50,7 @@ const styles = StyleSheet.create({
   },
   instructionText: {
     textAlign: 'center', 
-    marginTop: 430, 
+    marginTop: 413, 
     fontSize: 16, 
     color: COLORS.grey, 
     fontWeight: 'bold'
@@ -59,7 +63,7 @@ const styles = StyleSheet.create({
     height: 60,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#01C9E3',
+    backgroundColor: '#03DAC6',
     borderRadius: 30, 
     elevation: 4, // add shadow on Android
     shadowOpacity: 0.3, // add shadow on iOS
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
   },
   addButtonText: {
     color: 'black',
-    fontSize: 30,
+    fontSize: 27
   },
   // container: {
   //   flex: 1,
@@ -77,7 +81,7 @@ const styles = StyleSheet.create({
   gifStyle: {
     position: 'absolute',
     right: 148,
-    top: 320,
+    top: 400,
     width: 90,
     height: 81,
   },
