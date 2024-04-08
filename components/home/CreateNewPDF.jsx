@@ -3,7 +3,8 @@ import { View, Text, Image, TouchableOpacity} from 'react-native';
 import { useRouter } from 'expo-router';
 import RecentlyUsedContext from './recentlyused/RecentlyUsedContext';
 import {styles, buttonStyles} from "./home.style";
-import { COLORS, icons } from "../../constants"
+import { icons } from "../../constants"
+import { useDebouncedTouchableOpacity } from "../../components";
 
 const CreateNewPDF = () => {
   const router = useRouter();
@@ -17,18 +18,18 @@ const CreateNewPDF = () => {
     "ExcelToPDF": "Excel to PDF",
   };
 
-  const handleButtonPress = (page) => {
+  const [handleButtonPress, disabled] = useDebouncedTouchableOpacity((page) => {
     console.log(`Button ${pageNames[page]} pressed`);
     addFeature(pageNames[page]);
     router.push(`/create/${page}`);
-  };
+  });
 
   return (
     <View>
       <Text style={styles.header}>Create new PDF</Text>
 
       <View style={styles.row}>
-        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("ImageToPDF")}>
+        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("ImageToPDF")} disabled={disabled}>
           <Image
             source={icons.image}
             resizeMode='cover'
@@ -36,7 +37,7 @@ const CreateNewPDF = () => {
           />
           <Text style={styles.buttonText}>Images to PDF</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("TextToPDF")}>
+        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("TextToPDF")} disabled={disabled}>
           <Image
             source={icons.text}
             resizeMode='cover'
@@ -46,7 +47,7 @@ const CreateNewPDF = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("QRAndBarcodes")}>
+        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("QRAndBarcodes")} disabled={disabled}>
           <Image
             source={icons.qrcode}
             resizeMode='cover'
@@ -54,7 +55,7 @@ const CreateNewPDF = () => {
           />
           <Text style={styles.buttonText}>QR & Barcodes</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("ExcelToPDF")}>
+        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("ExcelToPDF")} disabled={disabled}>
           <Image
             source={icons.excel}
             resizeMode='cover'

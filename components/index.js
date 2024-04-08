@@ -1,5 +1,5 @@
 import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
-// import { loadItem, saveItem } from "./common/recentlyused/DataStorage";
+import useDebouncedTouchableOpacity from "./common/button/Debounce"
 
 // Home Screen
 import RecentlyUsedFeatures from './home/recentlyused/RecentlyUsedFeatures';
@@ -11,8 +11,8 @@ import MoreOptions from "./home/MoreOptions";
 
 export {
   ScreenHeaderBtn,
-  // loadItem, 
-  // saveItem,
+  useDebouncedTouchableOpacity,
+  
   RecentlyUsedFeatures,
   CreateNewPDF,
   ViewPDFs,

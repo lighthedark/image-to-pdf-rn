@@ -1,25 +1,24 @@
 import { Stack, useRouter } from "expo-router"
 import { useState } from "react";
 import { COLORS, icons } from "../../constants"
-import { ScreenHeaderBtn } from "../../components";
+import { ScreenHeaderBtn, useDebouncedTouchableOpacity } from "../../components";
 import { View, Text } from "react-native";
 
 import SideMenu from '../../components/common/sidebar/SideMenu';
-import BackDrop from '../../components/common/BackDrop/BackDrop';
-
+import BackDrop from '../../components/common/backdrop/BackDrop';
 
 const Header = ({ title, rightVisible=true }) => {
     const router = useRouter()
 
-    const goToFavorites = () => {
+    const [goToFavorites, disabled] = useDebouncedTouchableOpacity(() => {
         console.log('Button favorites pressed');
-        router.push('favourites/Favourites')
-    };
+        router.push('favourites/Favourites');
+    });
 
     const [menuVisible, setMenuVisible] = useState(false);
 
     const toggleMenu = () => {
-    setMenuVisible(!menuVisible);
+        setMenuVisible(!menuVisible);
     };
 
     return (
@@ -28,10 +27,10 @@ const Header = ({ title, rightVisible=true }) => {
             <SideMenu isVisible={menuVisible} onClose={() => setMenuVisible(false)} />
             <Stack.Screen options={{ headerShown: false }} />
             <View style={{ height: 23 }} />
-            <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: COLORS.colorAltPrimary, height: 60 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', height: 60 }}>
                 <ScreenHeaderBtn
                     iconUrl={icons.menu}
-                    dimension='65%'
+                    dimension='67%'
                     marginLeft={20}
                     marginRight={15}
                     handlePress={toggleMenu}
@@ -48,6 +47,7 @@ const Header = ({ title, rightVisible=true }) => {
                     marginRight={-8}
                     visible={rightVisible}
                     handlePress={goToFavorites}
+                    btn_disable={disabled}
                 />
             </View>
             <View style={{ height: 15 }} />

@@ -1,25 +1,36 @@
 import React, { useContext } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, FlatList} from 'react-native';
+import { View, Text, TouchableOpacity, Image} from 'react-native';
 import { useRouter } from 'expo-router';
 import RecentlyUsedContext from './recentlyused/RecentlyUsedContext';
 import {styles, buttonStyles} from "./home.style";
-import { COLORS, icons } from "../../constants"
+import { icons } from "../../constants"
+import { useDebouncedTouchableOpacity } from "../../components";
 
 const ModifyExistingPDFs = () => {
   const router = useRouter();
   const { addFeature } = useContext(RecentlyUsedContext);
-  const handleButtonPress = (buttonNumber) => {
-    console.log(`Button ${buttonNumber} pressed`);
-    addFeature(buttonNumber);
-    // Add your logic for handling button press here
+  
+  // define a name mapping for the pages
+  const pageNames = {
+    "MergePDF": "Merge PDF",
+    "SplitPDF": "Split PDF",
+    "InvertPDF": "Invert PDF",
+    "CompressPDF": "Compress PDF",
+    "RemoveDuplicate": "Remove Duplicate"
   };
+
+  const [handleButtonPress, disabled] = useDebouncedTouchableOpacity((page) => {
+    console.log(`Button ${pageNames[page]} pressed`);
+    addFeature(pageNames[page]);
+    router.push(`/modify/${page}`);
+  });
 
   return (
     <View>
       <Text style={styles.header}>Modify Existing PDFs</Text>
 
       <View style={styles.row}>
-        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("Merge PDF")}>
+        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("MergePDF")} disabled={disabled}>
           <Image
             source={icons.merge}
             resizeMode='cover'
@@ -27,7 +38,7 @@ const ModifyExistingPDFs = () => {
           />
           <Text style={styles.buttonText}>Merge PDF</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("Split PDF")}>
+        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("SplitPDF")} disabled={disabled}>
           <Image
             source={icons.split}
             resizeMode='cover'
@@ -37,7 +48,7 @@ const ModifyExistingPDFs = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.buttonL3} onPress={() => handleButtonPress("Invert PDF")}>
+        <TouchableOpacity style={styles.buttonL3} onPress={() => handleButtonPress("InvertPDF")} disabled={disabled}>
           <Image
             source={icons.invertColor}
             resizeMode='cover'
@@ -45,7 +56,7 @@ const ModifyExistingPDFs = () => {
           />
           <Text style={styles.buttonText}>Invert PDF</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonC3} onPress={() => handleButtonPress("Compress PDF")}>
+        <TouchableOpacity style={styles.buttonC3} onPress={() => handleButtonPress("CompressPDF")} disabled={disabled}>
           <Image
             source={icons.compress}
             resizeMode='cover'
@@ -53,7 +64,7 @@ const ModifyExistingPDFs = () => {
           />
           <Text style={styles.buttonText}>Compress PDF</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonR3} onPress={() => handleButtonPress("Remove Duplicate")}>
+        <TouchableOpacity style={styles.buttonR3} onPress={() => handleButtonPress("RemoveDuplicate")} disabled={disabled}>
           <Image
             source={icons.removeDuplicate}
             resizeMode='cover'

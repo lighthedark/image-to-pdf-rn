@@ -1,24 +1,36 @@
 import React, { useContext } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, FlatList} from 'react-native';
+import { View, Text, TouchableOpacity, Image} from 'react-native';
 import { useRouter } from 'expo-router';
 import RecentlyUsedContext from './recentlyused/RecentlyUsedContext';
 import {styles, buttonStyles} from "./home.style";
 import { COLORS, icons } from "../../constants"
+import { useDebouncedTouchableOpacity } from "../../components";
 
 const MoreOptions = () => {
   const router = useRouter();
   const { addFeature } = useContext(RecentlyUsedContext);
-  const handleButtonPress = (buttonNumber) => {
-    console.log(`Button ${buttonNumber} pressed`);
-    addFeature(buttonNumber);
-    // Add your logic for handling button press here
+  
+  // define a name mapping for the pages
+  const pageNames = {
+    "RemovePages": "Remove Pages",
+    "ReorderPages": "Reorder Pages",
+    "ExtractImages": "Extract Images",
+    "PDFtoImages": "PDF to Images",
+    "ExtractText": "Extract Text",
+    "ZIPtoPDF": "ZIP to PDF",
   };
+
+  const [handleButtonPress, disabled] = useDebouncedTouchableOpacity((page) => {
+    console.log(`Button ${pageNames[page]} pressed`);
+    addFeature(pageNames[page]);
+    router.push(`/options/${page}`);
+  });
 
   return (
     <View>
       <Text style={styles.header}>More Options</Text>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("Remove Pages")}>
+        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("RemovePages")} disabled={disabled}>
           <Image
             source={icons.removePage}
             resizeMode='cover'
@@ -26,7 +38,7 @@ const MoreOptions = () => {
           />
           <Text style={styles.buttonText}>Remove Pages</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("Reorder Pages")}>
+        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("ReorderPages")} disabled={disabled}>
           <Image
             source={icons.reorder}
             resizeMode='cover'
@@ -42,7 +54,7 @@ const MoreOptions = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("Extract Images")}>
+        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("ExtractImages")} disabled={disabled}>
           <Image
             source={icons.broken}
             resizeMode='cover'
@@ -50,7 +62,7 @@ const MoreOptions = () => {
           />
           <Text style={styles.buttonText}>Extract Images</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("PDF to Images")}>
+        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("PDFtoImages")} disabled={disabled}>
           <Image
             source={icons.image}
             resizeMode='cover'
@@ -60,7 +72,7 @@ const MoreOptions = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("Extract Text")}>
+        <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("ExtractText")} disabled={disabled}>
           <Image
             source={icons.text}
             resizeMode='cover'
@@ -68,7 +80,7 @@ const MoreOptions = () => {
           />
           <Text style={styles.buttonText}>Extract Text</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("ZIP to PDF")}>
+        <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("ZIPtoPDF")} disabled={disabled}>
           <Image
             source={icons.zip}
             resizeMode='cover'
