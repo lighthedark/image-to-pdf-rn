@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import RecentlyUsedContext from './recentlyused/RecentlyUsedContext';
 import {styles, buttonStyles} from "./home.style";
 import { COLORS, icons } from "../../constants"
-import { useDebouncedTouchableOpacity } from "../../components";
+import useDebouncedTouchableOpacity from "../../components/common/button/Debounce";
 
 const MoreOptions = () => {
   const router = useRouter();

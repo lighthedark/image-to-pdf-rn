@@ -1,5 +1,4 @@
 import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
-import useDebouncedTouchableOpacity from "./common/button/Debounce"
 
 // Home Screen
 import RecentlyUsedFeatures from './home/recentlyused/RecentlyUsedFeatures';
@@ -11,7 +10,6 @@ import MoreOptions from "./home/MoreOptions";
 
 export {
   ScreenHeaderBtn,
-  useDebouncedTouchableOpacity,
   
   RecentlyUsedFeatures,
   CreateNewPDF,

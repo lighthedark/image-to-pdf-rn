@@ -1,7 +1,8 @@
 import { Stack, useRouter } from "expo-router"
 import { useState } from "react";
 import { COLORS, icons } from "../../constants"
-import { ScreenHeaderBtn, useDebouncedTouchableOpacity } from "../../components";
+import { ScreenHeaderBtn } from "../../components";
+import useDebouncedTouchableOpacity from "../../components/common/button/Debounce"
 import { View, Text } from "react-native";
 
 import SideMenu from '../../components/common/sidebar/SideMenu';

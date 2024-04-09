@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import RecentlyUsedContext from './recentlyused/RecentlyUsedContext';
 import {styles, buttonStyles} from "./home.style";
 import { icons } from "../../constants"
-import { useDebouncedTouchableOpacity } from "../../components";
+import useDebouncedTouchableOpacity from "../../components/common/button/Debounce";
 
 const CreateNewPDF = () => {
   const router = useRouter();
@@ -26,7 +26,7 @@ const CreateNewPDF = () => {
 
   return (
     <View>
-      <Text style={styles.header}>Create new PDF</Text>
+      <Text style={styles.header}>Create New PDF</Text>
 
       <View style={styles.row}>
         <TouchableOpacity style={styles.buttonL2} onPress={() => handleButtonPress("ImageToPDF")} disabled={disabled}>
