@@ -2,16 +2,16 @@ import { Stack, useRouter } from "expo-router"
 import { useState } from "react";
 import { COLORS, icons } from "../../constants"
 import { ScreenHeaderBtn } from "../../components";
-import useDebouncedTouchableOpacity from "../../components/common/button/Debounce"
+import buttonDebounce from "../../components/common/button/Debounce"
 import { View, Text } from "react-native";
 
 import SideMenu from '../../components/common/sidebar/SideMenu';
 import BackDrop from '../../components/common/backdrop/BackDrop';
 
-const Header = ({ title, rightVisible=true }) => {
+const Header = ({ title, currentPage, rightVisible = true }) => {
     const router = useRouter()
 
-    const [goToFavorites, disabled] = useDebouncedTouchableOpacity(() => {
+    const [goToFavorites, disabled] = buttonDebounce(() => {
         console.log('Button favorites pressed');
         router.push('favourites/Favourites');
     });
@@ -25,7 +25,7 @@ const Header = ({ title, rightVisible=true }) => {
     return (
         <>
             <BackDrop isVisible={menuVisible} onClick={() => setMenuVisible(false)} />
-            <SideMenu isVisible={menuVisible} onClose={() => setMenuVisible(false)} />
+            <SideMenu isVisible={menuVisible} onClose={() => setMenuVisible(false)} currentPage={currentPage}/>
             <Stack.Screen options={{ headerShown: false }} />
             <View style={{ height: 23 }} />
             <View style={{ flexDirection: 'row', alignItems: 'center', height: 60 }}>

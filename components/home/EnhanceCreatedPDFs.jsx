@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import RecentlyUsedContext from './recentlyused/RecentlyUsedContext';
 import { icons } from "../../constants"
 import {styles, buttonStyles} from "./home.style";
-import useDebouncedTouchableOpacity from "../../components/common/button/Debounce";
+import buttonDebounce from "../../components/common/button/Debounce";
 
 const EnhanceCreatedPDFs = () => {
   const router = useRouter();
@@ -20,7 +20,7 @@ const EnhanceCreatedPDFs = () => {
     "AddImages": "Add Images",
   };
 
-  const [handleButtonPress, disabled] = useDebouncedTouchableOpacity((page) => {
+  const [handleButtonPress, disabled] = buttonDebounce((page) => {
     console.log(`Button ${pageNames[page]} pressed`);
     addFeature(pageNames[page]);
     router.push(`/enhance/${page}`);

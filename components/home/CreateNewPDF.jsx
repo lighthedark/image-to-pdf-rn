@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import RecentlyUsedContext from './recentlyused/RecentlyUsedContext';
 import {styles, buttonStyles} from "./home.style";
 import { icons } from "../../constants"
-import useDebouncedTouchableOpacity from "../../components/common/button/Debounce";
+import buttonDebounce from "../../components/common/button/Debounce";
 
 const CreateNewPDF = () => {
   const router = useRouter();
@@ -18,7 +18,7 @@ const CreateNewPDF = () => {
     "ExcelToPDF": "Excel to PDF",
   };
 
-  const [handleButtonPress, disabled] = useDebouncedTouchableOpacity((page) => {
+  const [handleButtonPress, disabled] = buttonDebounce((page) => {
     console.log(`Button ${pageNames[page]} pressed`);
     addFeature(pageNames[page]);
     router.push(`/create/${page}`);
@@ -35,7 +35,7 @@ const CreateNewPDF = () => {
             resizeMode='cover'
             style={buttonStyles.buttonImage}
           />
-          <Text style={styles.buttonText}>Images to PDF</Text>
+          <Text style={styles.buttonText}>Image To PDF</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonR2} onPress={() => handleButtonPress("TextToPDF")} disabled={disabled}>
           <Image
@@ -43,7 +43,7 @@ const CreateNewPDF = () => {
             resizeMode='cover'
             style={buttonStyles.buttonImage}
           />
-          <Text style={styles.buttonText}>Text to PDF</Text>
+          <Text style={styles.buttonText}>Text To PDF</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
@@ -61,7 +61,7 @@ const CreateNewPDF = () => {
             resizeMode='cover'
             style={buttonStyles.buttonImage}
           />
-          <Text style={styles.buttonText}>Excel to PDF</Text>
+          <Text style={styles.buttonText}>Excel To PDF</Text>
         </TouchableOpacity>
       </View>
 

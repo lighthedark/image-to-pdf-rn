@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const useDebouncedTouchableOpacity = (handler, delay = 300) => {
+const buttonDebounce = (handler, delay = 300) => {
     const [disabled, setDisabled] = useState(false);
 
     const debouncedHandler = (...args) => {
@@ -16,4 +16,4 @@ const useDebouncedTouchableOpacity = (handler, delay = 300) => {
     return [debouncedHandler, disabled];
 };
 
-export default useDebouncedTouchableOpacity;
+export default buttonDebounce;

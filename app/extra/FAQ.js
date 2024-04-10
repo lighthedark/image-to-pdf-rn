@@ -3,14 +3,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { COLORS, DEFAULT_STYLE } from '../../constants';
 import Header from "../header/Header";
 
-const ExcelToPDF = () => {
+const FAQ = () => {
 
   return (
     <LinearGradient colors={[COLORS.colorPrimary, COLORS.colorAccent]} start={{x: 0, y: 0}} end={{x: 0, y: 0.16}} style={DEFAULT_STYLE}>
       <SafeAreaView style={DEFAULT_STYLE}>
         <Header
-          title = "Excel To PDF"
-          currentPage = "ExcelToPDF"
+          title="FAQ"
         />
         <ScrollView 
           showsVerticalScrollIndicator={false}
@@ -25,4 +24,4 @@ const ExcelToPDF = () => {
   );
 };
 
-export default ExcelToPDF;
+export default FAQ;

@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import RecentlyUsedContext from './recentlyused/RecentlyUsedContext';
 import {styles, buttonStyles} from './home.style';
 import { icons } from "../../constants"
-import useDebouncedTouchableOpacity from "../../components/common/button/Debounce";
+import buttonDebounce from "../../components/common/button/Debounce";
 
 const ViewPDFs = () => {
   const router = useRouter();
@@ -16,7 +16,7 @@ const ViewPDFs = () => {
     "History": "History"
   };
 
-  const [handleButtonPress, disabled] = useDebouncedTouchableOpacity((page) => {
+  const [handleButtonPress, disabled] = buttonDebounce((page) => {
     console.log(`Button ${pageNames[page]} pressed`);
     addFeature(pageNames[page]);
     router.push(`/view/${page}`);
