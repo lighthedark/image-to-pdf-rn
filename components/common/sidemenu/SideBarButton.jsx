@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { View, Text, Image, TouchableHighlight} from 'react-native';
 import styles from './sidemenu.style';
 import { COLORS, icons } from '../../../constants';
-import buttonDebounce from "../../common/button/Debounce";
+import buttonDebounce from "../button/Debounce";
 import RecentlyUsedContext from '../../home/recentlyused/RecentlyUsedContext';
 import { useRouter } from 'expo-router';
 

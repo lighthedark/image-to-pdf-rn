@@ -5,7 +5,7 @@ import { ScreenHeaderBtn } from "../../components";
 import buttonDebounce from "../../components/common/button/Debounce"
 import { View, Text } from "react-native";
 
-import SideMenu from '../../components/common/sidebar/SideMenu';
+import SideMenu from '../../components/common/sidemenu/SideMenu';
 import BackDrop from '../../components/common/backdrop/BackDrop';
 
 const Header = ({ title, currentPage, rightVisible = true }) => {
