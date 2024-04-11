@@ -9,7 +9,7 @@ import { useRouter } from 'expo-router';
 const SideBarButton = ({isCurrentPage, pageName, pageText, subDirectory}) => {
 
     const iconTranslation = {
-        "Home": icons.home,
+        "HomeScreen": icons.home,
 
         "ImageToPDF": icons.image,
         "TextToPDF": icons.text,
@@ -53,8 +53,8 @@ const SideBarButton = ({isCurrentPage, pageName, pageText, subDirectory}) => {
     const [handleButtonPress, disabled] = buttonDebounce((pageName, pageText, subDirectory) => {
         console.log(`Button ${pageText} pressed`);
 
-        if (pageName === "Home"){
-            router.push('/');
+        if (pageName === "HomeScreen"){
+            router.push('/HomeScreen');
         }
         else if(pageName != "RateUs" && pageName != "Share"){
             addFeature(pageText);

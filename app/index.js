@@ -1,52 +1,25 @@
-import { useState } from "react";
-import { SafeAreaView, ScrollView, View } from "react-native";
-import { Stack, useRouter, Link } from "expo-router";
-import { LinearGradient } from 'expo-linear-gradient';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useEffect } from 'react';
+import HomeScreen from './HomeScreen';
 
-import { COLORS, DEFAULT_STYLE } from '../constants';
-import { 
-  RecentlyUsed, 
-  CreateNewPDF, 
-  ViewPDFs,
-  EnhanceCreatedPDFs,
-  ModifyExistingPDFs,
-  MoreOptions
- } from '../components';
+const App = () => {
 
-import RecentlyUsedProvider from '../components/home/recentlyused/RecentlyUsedProvider';
-import RecentlyUsedFeatures from '../components/home/recentlyused/RecentlyUsedFeatures';
-import Header from "./header/Header";
+    // Reset stored SideMenu scrollPosition on app startup
+    useEffect(() => {
+        const getValueFromStorage = async () => {
+            try {
+                AsyncStorage.setItem('scrollPosition', '0');
+                console.log("Setting scrollPosition to 0 on startup")
+            } catch (error) {
+                console.log('Error retrieving data from AsyncStorage:', error);
+            }
+        };
+        getValueFromStorage();
+    }, []);
 
-const Home = () => {
-  const router = useRouter()
-
-  return (
-    <LinearGradient colors={[COLORS.colorPrimary, COLORS.colorAccent]} start={{x: 0, y: 0}} end={{x: 0, y: 0.16}} style={DEFAULT_STYLE}>
-      <SafeAreaView style={DEFAULT_STYLE}>   
-        <Header
-          title = "PDF Converter"
-          currentPage = "Home"
-        />
-        <View style={{overflow: 'scroll', 
-                      borderTopLeftRadius: 25,
-                      borderTopRightRadius: 25,
-                      backgroundColor: COLORS.lighter_gray}}>
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <RecentlyUsedProvider>
-            <RecentlyUsedFeatures />
-            <View style={{marginBottom: 110, marginTop: 20}}>
-              <CreateNewPDF/>
-              <ViewPDFs/>
-              <EnhanceCreatedPDFs/>
-              <ModifyExistingPDFs/>
-              <MoreOptions/>
-            </View>
-            </RecentlyUsedProvider>
-          </ScrollView>
-        </View>
-      </SafeAreaView>
-    </LinearGradient>
-  );
+    return (
+        <HomeScreen/>
+    );
 };
 
-export default Home;
+export default App;

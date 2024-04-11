@@ -9,7 +9,8 @@ const ExtractText = () => {
     <LinearGradient colors={[COLORS.colorPrimary, COLORS.colorAccent]} start={{x: 0, y: 0}} end={{x: 0, y: 0.16}} style={DEFAULT_STYLE}>
       <SafeAreaView style={DEFAULT_STYLE}>
         <Header
-          title="Extract Text"
+            title="Extract Text"
+            currentPage="ExtractText"
         />
         <ScrollView 
           showsVerticalScrollIndicator={false}

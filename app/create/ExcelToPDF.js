@@ -7,20 +7,20 @@ const ExcelToPDF = () => {
 
   return (
     <LinearGradient colors={[COLORS.colorPrimary, COLORS.colorAccent]} start={{x: 0, y: 0}} end={{x: 0, y: 0.16}} style={DEFAULT_STYLE}>
-      <SafeAreaView style={DEFAULT_STYLE}>
-        <Header
-          title = "Excel To PDF"
-          currentPage = "ExcelToPDF"
-        />
-        <ScrollView 
-          showsVerticalScrollIndicator={false}
-          style={{borderTopLeftRadius: 25,
-                  borderTopRightRadius: 25,
-                  backgroundColor: COLORS.lighter_gray}}>
-          <View>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+        <SafeAreaView style={DEFAULT_STYLE}>
+            <Header
+                title = "Excel To PDF"
+                currentPage = "ExcelToPDF"
+            />
+            <ScrollView 
+                showsVerticalScrollIndicator={false}
+                style={{borderTopLeftRadius: 25,
+                        borderTopRightRadius: 25,
+                        backgroundColor: COLORS.lighter_gray}}>
+                <View>
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     </LinearGradient>
   );
 };

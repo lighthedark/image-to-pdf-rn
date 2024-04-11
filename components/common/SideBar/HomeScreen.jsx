@@ -4,15 +4,15 @@ import { useRouter } from 'expo-router';
 import styles from './sidemenu.style';
 import SideBarButton from './SideBarButton';
 
-const Home = ({currentPage = null}) => {
+const HomeScreen = ({currentPage = null}) => {
     const router = useRouter();
     const isCurrentPage = (pageName) => currentPage === pageName;
 
     return (
         <View style={{paddingTop: 30}}>
             <SideBarButton
-                isCurrentPage={isCurrentPage("Home")}
-                pageName={"Home"}
+                isCurrentPage={isCurrentPage("HomeScreen")}
+                pageName={"HomeScreen"}
                 pageText={"Home"}
             />
             <View style={styles.line}></View>
@@ -20,4 +20,4 @@ const Home = ({currentPage = null}) => {
     )
 }
 
-export default Home
+export default HomeScreen

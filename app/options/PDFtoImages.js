@@ -3,13 +3,14 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { COLORS, DEFAULT_STYLE } from '../../constants';
 import Header from "../header/Header";
 
-const PDFtoImages = () => {
+const PDFToImages = () => {
 
   return (
     <LinearGradient colors={[COLORS.colorPrimary, COLORS.colorAccent]} start={{x: 0, y: 0}} end={{x: 0, y: 0.16}} style={DEFAULT_STYLE}>
       <SafeAreaView style={DEFAULT_STYLE}>
         <Header
-          title="PDF to Images"
+            title="PDF to Images"
+            currentPage="PDFToImages"
         />
         <ScrollView 
           showsVerticalScrollIndicator={false}
@@ -24,4 +25,4 @@ const PDFtoImages = () => {
   );
 };
 
-export default PDFtoImages;
+export default PDFToImages;
