@@ -32,16 +32,18 @@ const HomeScreen= () => {
                               backgroundColor: COLORS.lighter_gray}}
                 >
                     <ScrollView showsVerticalScrollIndicator={false}>
-                        <RecentlyUsedProvider>
-                        <RecentlyUsedFeatures />
+                       
                         <View style={{marginBottom: 110, marginTop: 20}}>
+                            <RecentlyUsedProvider>
+                            <RecentlyUsedFeatures />
                             <CreateNewPDF/>
                             <ViewPDFs/>
                             <EnhanceCreatedPDFs/>
                             <ModifyExistingPDFs/>
                             <MoreOptions/>
+                            </RecentlyUsedProvider>
                         </View>
-                        </RecentlyUsedProvider>
+                        
                     </ScrollView>
                 </View>
             </SafeAreaView>
