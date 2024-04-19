@@ -4,7 +4,7 @@ import { Stack, useRouter, Link } from "expo-router";
 import { COLORS, DEFAULT_STYLE} from '../../constants';
 import Header from "../header/Header";
 import { LinearGradient } from 'expo-linear-gradient';
-
+import LottieView from 'lottie-react-native';
 
 const Favourites = () => {
   const router = useRouter()
@@ -32,10 +32,16 @@ const Favourites = () => {
           <Text style={styles.addButtonText}>+</Text>
         </TouchableOpacity>
         {/* <View style={styles.container}> */}
-        <Image
+        {/* <Image
           source={require('../../assets/favourites/heart.gif')} 
           style={styles.gifStyle}
           resizeMode="cover" // Adjusts the gif to fit within the width and height specified
+        /> */}
+        <LottieView
+          source={require('./favourites.json')} 
+          autoPlay
+          loop
+          style={styles.gifStyle}
         />
       </SafeAreaView>
     </LinearGradient>
@@ -80,10 +86,10 @@ const styles = StyleSheet.create({
   // },
   gifStyle: {
     position: 'absolute',
-    right: 148,
-    top: 400,
-    width: 90,
-    height: 81,
+    right: 90,
+    top: 352,
+    width: 220,
+    height: 180,
   },
 });
 
