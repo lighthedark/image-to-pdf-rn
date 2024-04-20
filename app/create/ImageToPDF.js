@@ -6,6 +6,8 @@ import Header from '../header/Header';
 import * as ImagePicker from 'expo-image-picker';
 import { printToFileAsync } from 'expo-print';
 import * as DocumentPicker from 'expo-document-picker';
+import * as FileSystem from 'expo-file-system';
+import * as Sharing from 'expo-sharing';
 
 const ImageToPDF = () => {
   const [selectedImages, setSelectedImages] = useState([]);
@@ -35,16 +37,19 @@ const ImageToPDF = () => {
     try {
       setPdfGenerationStatus('generating');
 
-      const images = selectedImages.map(image => ({
-        uri: image.uri,
-        width: image.width,
-        height: image.height,
-      }));
+      const images = await Promise.all(
+        selectedImages.map(async (image) => {
+          const base64Image = await FileSystem.readAsStringAsync(image.uri, {
+            encoding: FileSystem.EncodingType.Base64,
+          });
+          return `<img src="data:image/jpeg;base64,${base64Image}" width="${image.width}" height="${image.height}" />`;
+        })
+      );
 
       const html = `
         <html>
           <body>
-            ${images.map(image => `<img src="${image.uri}" width="${image.width}" height="${image.height}" />`).join('')}
+            ${images.join('')}
           </body>
         </html>
       `;
@@ -65,17 +70,16 @@ const ImageToPDF = () => {
   // Function to open the generated PDF
   const openPDF = async () => {
     try {
-        const res = await DocumentPicker.getDocumentAsync({
-          type: 'application/pdf', // make sure only PDFs are picked
-          copyToCacheDirectory: true
-        });
-        if (res.type === 'success') {
-          await WebBrowser.openBrowserAsync(res.uri);
-        }
-      } catch (error) {
-        console.error('Error picking a PDF:', error);
-        alert('Failed to pick PDF. Please try again.');
+      if (pdfUri) {
+        await Sharing.shareAsync(pdfUri, { mimeType: 'application/pdf' });
+      } else {
+        console.error('No PDF URI available');
+        alert('No PDF available. Please generate a PDF first.');
       }
+    } catch (error) {
+      console.error('Error sharing PDF:', error);
+      alert('Failed to share PDF. Please try again.');
+    }
   };
 
   return (
